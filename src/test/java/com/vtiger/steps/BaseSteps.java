@@ -49,24 +49,49 @@ public class BaseSteps {
 
     public void launchApp()
     {
-        if(prop.getProperty("BrowserName").equalsIgnoreCase("edge"))
+        if(System.getProperty("browser")!=null)
         {
-            driver = new EdgeDriver();
-        }
-        else if(prop.getProperty("BrowserName").equalsIgnoreCase("firefox"))
-        {
-            driver = new FirefoxDriver();
-        }
-        else if(prop.getProperty("BrowserName").equalsIgnoreCase("headless"))
-        {
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--headless");
-            driver = new ChromeDriver(options);
+            if(System.getProperty("browser").equalsIgnoreCase("edge"))
+            {
+                driver = new EdgeDriver();
+            }
+            else if(System.getProperty("browser").equalsIgnoreCase("firefox"))
+            {
+                driver = new FirefoxDriver();
+            }
+            else if(System.getProperty("browser").equalsIgnoreCase("headless"))
+            {
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                driver = new ChromeDriver(options);
+            }
+            else
+            {
+                driver = new ChromeDriver();
+            }
         }
         else
         {
-            driver = new ChromeDriver();
+            if(prop.getProperty("BrowserName").equalsIgnoreCase("edge"))
+            {
+                driver = new EdgeDriver();
+            }
+            else if(prop.getProperty("BrowserName").equalsIgnoreCase("firefox"))
+            {
+                driver = new FirefoxDriver();
+            }
+            else if(prop.getProperty("BrowserName").equalsIgnoreCase("headless"))
+            {
+                ChromeOptions options = new ChromeOptions();
+                options.addArguments("--headless");
+                driver = new ChromeDriver(options);
+            }
+            else
+            {
+                driver = new ChromeDriver();
+            }
         }
+
 
         driver.get(prop.getProperty("AppUrl"));
         driver.manage().window().maximize();

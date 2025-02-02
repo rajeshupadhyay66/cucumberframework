@@ -12,7 +12,7 @@ import org.testng.annotations.BeforeClass;
         features = "src/test/resources/Features/",
         glue = "com.vtiger.steps",
         dryRun = false,
-        tags = "@valid",
+        tags = "@bhumi",
         plugin = {"html:target/cucumber-reports.html", "json:target/cucumber.json"}
 
 
