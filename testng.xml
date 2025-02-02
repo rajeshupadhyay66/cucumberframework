@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Cucumber Suite">
+    <listeners>
+        <listener class-name="com.vtiger.utilities.ExtentReportListener" />
+    </listeners>
+    <test name="Cucumber Test">
+        <classes>
+            <class name="com.vtiger.runner.TestNGCucumberRunner" />
+        </classes>
+    </test>
+</suite>
